@@ -1,0 +1,43 @@
+name: LCD Grid Build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    container: rust:1-bullseye
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: oauramos/omega-zero
+          ref: 2192ba96575452bf3403e9f566ec7af30760fbbb
+
+      - name: Install build dependencies
+        run: |
+          set -eu
+          sed -i '/bullseye-security/d' /etc/apt/sources.list
+          apt-get -o Acquire::Check-Valid-Until=false update
+          apt-get install -y --no-install-recommends zip cmake file binutils
+          curl -fsSL https://taskfile.dev/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Build LCD and grid version
+        run: task dist:device OUT=omega-zero-lcd-grid-pr33
+
+      - name: Verify handheld binary
+        run: |
+          file omega-zero-lcd-grid-pr33/System/omega-zero | grep -q aarch64
+          test -f omega-zero-lcd-grid-pr33/System/licenses/shaders.txt
+
+      - name: Package
+        run: zip -qry omega-zero-lcd-grid-pr33.zip omega-zero-lcd-grid-pr33
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: omega-zero-lcd-grid-pr33
+          path: omega-zero-lcd-grid-pr33.zip
+          if-no-files-found: error

@@ -1,0 +1,79 @@
+name: RetroAchievements Test Build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    container: rust:1-bullseye
+    timeout-minutes: 60
+    steps:
+      - name: Get your build inputs
+        uses: actions/checkout@v7
+        with:
+          path: build-inputs
+          persist-credentials: false
+
+      - name: Get the known-working shader source
+        uses: actions/checkout@v7
+        with:
+          repository: oauramos/omega-zero
+          ref: 2192ba96575452bf3403e9f566ec7af30760fbbb
+          path: source
+          persist-credentials: false
+
+      - name: Install build dependencies
+        run: |
+          set -eu
+          sed -i '/bullseye-security/d' /etc/apt/sources.list
+          apt-get -o Acquire::Check-Valid-Until=false update
+          apt-get install -y --no-install-recommends cmake file binutils
+          curl -fsSL https://taskfile.dev/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Apply the reviewed achievement port
+        run: |
+          set -eu
+          echo '1303400ac6d8f7ebb9b093e09b3db63a76826a153a664a21795b08a4861c32ea  build-inputs/retroachievements.patch' | sha256sum -c -
+          git -C source apply --check ../build-inputs/retroachievements.patch
+          git -C source apply ../build-inputs/retroachievements.patch
+
+      - name: Format, device checks and offline tests
+        working-directory: source
+        run: |
+          set -eu
+          cargo fmt --all -- --check
+          cargo clippy --locked -p omega-zero --no-default-features --features device -- -D warnings
+          cargo test --locked -p omega-achievements -p omega-retro --lib
+          cargo test --locked -p omega-zero --no-default-features --features device --lib
+
+      - name: Compile handheld executable and exact pinned cores
+        working-directory: source
+        run: task build:device core:device core:gpsp
+
+      - name: Verify memory mapping using the actual ARM cores
+        working-directory: source
+        run: cargo test --locked -p omega-retro --test achievement_memory -- --ignored --nocapture
+
+      - name: Prepare development download
+        working-directory: source
+        run: |
+          set -eu
+          file target-device/device/omega-zero | grep -q aarch64
+          mkdir -p ../output/System/licenses ../output/Config
+          cp target-device/device/omega-zero ../output/System/omega-zero
+          cp crates/omega-achievements/retroachievements.toml.example ../output/Config/
+          cp licenses/rcheevos-MIT.txt ../output/System/licenses/
+          cp LICENSE ../output/System/licenses/omega-zero-GPL-3.0.txt
+          cp RETROACHIEVEMENTS-PORT.md ../output/READ-FIRST.md
+          cp ../build-inputs/retroachievements.patch ../output/
+          sha256sum ../output/System/omega-zero > ../output/omega-zero.sha256
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: omega-zero-ra-softcore-development
+          path: output/
+          if-no-files-found: error

@@ -1,141 +1,62 @@
-<h1 align="center"><img src="assets/logo/omega-zero-logo@2x.png" width="420" alt="omega-zero"></h1>
+<div align="center">
 
-<p align="center">A Game Boy-centric frontend for Anbernic H700 handhelds running
-<a href="https://github.com/pvaibhav/BaseOS">BaseOS</a>. It plays GBA, GBC and GB games, and SNES
-and PlayStation games too, on a shelf of cartridges and discs that go down into the handheld when
-you play them.</p>
+<img src="community-media/community-banner.svg" width="100%" alt="Omega-Zero Community Build, an unofficial fork tested on RG35XXSP with BaseOS">
 
-<p align="center">
-<a href="https://oauramos.github.io/omega-zero/"><b>Site</b></a> ·
-<a href="https://github.com/oauramos/omega-zero/releases/latest"><b>Download</b></a> ·
-<a href="https://github.com/oauramos/omega-zero/wiki"><b>Wiki</b></a> ·
-<a href="CHANGELOG.md"><b>Changelog</b></a>
-</p>
+<a href="https://github.com/lorussomj-stack/omega-zero/releases/download/v0.1.0-community/omega-zero-community-v0.1.0-rg35xxsp.zip"><img src="https://img.shields.io/badge/Download-v0.1.0-86a86f?style=for-the-badge&amp;labelColor=202d2d" alt="Download v0.1.0 for RG35XXSP"></a>
+<a href="https://github.com/lorussomj-stack/omega-zero/releases"><img src="https://img.shields.io/badge/Release_notes-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="Release notes"></a>
+<a href="#install"><img src="https://img.shields.io/badge/Install_guide-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="Install guide"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0--or--later-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="GPL-3.0-or-later license"></a>
 
-<img src="site/media/readme/supported-devices.png" width="760" alt="">
+</div>
 
-## Supported devices
+## About this fork
 
-One build runs on all of them: omega-zero reads the model from BaseOS at boot and lays itself out
-for its panel.
+An unofficial community build of [Omega-Zero](https://github.com/oauramos/omega-zero), a cartridge-shelf frontend for Anbernic handhelds running BaseOS. I started with the LCD grid and added RetroAchievements, an in-game achievement browser, and extra dimming for nighttime play.
 
-| Device | Panel | Status |
-|---|---|---|
-| RG35XX SP | 640x480 | Main target, in daily use |
-| RG SP | 720x480 | Supported, not yet retested on hardware |
-| RG34XX SP, RG34XX | 720x480 | Untested |
-| RG35XX Plus / 2024, H, Pro | 640x480 | Untested |
-| RG40XX H, RG40XX V | 640x480 | Untested |
-| RG CubeXX | 720x720 | Experimental |
-| RG28XX | 480x640, turned | Experimental |
+I tested this build on the **RG35XXSP (640 × 480) running BaseOS**. The release updates the frontend on an existing Omega-Zero card and uses the emulator cores already on it.
 
-Own an untested one? A [device report](https://github.com/oauramos/omega-zero/wiki/Device-Reports)
-is the most useful thing you can send.
+## What’s in this build
 
-<img src="site/media/readme/highlights.png" width="760" alt="">
+| Feature | How to use it |
+| --- | --- |
+| **LCD grid and screen filters** | Press **Select + X** in-game to cycle through the screen looks from upstream PR #33, including LCD, dot, grid, scanlines, and CRT. |
+| **Softcore RetroAchievements** | Enable the optional config for GB, GBC, GBA, and SNES. Select **Snes9x** for SNES tracking. Cached games can earn achievements offline and sync them when you reconnect. |
+| **Achievement browser** | Press **Select + Start** in-game to pause and view earned and locked achievements, points, and requirements. Use the D-pad to browse, **A** for details, and **B** to go back. |
+| **Quieter notifications** | Game-ready and unlock messages appear in-game. Routine internet reminders and sync confirmations stay hidden while syncing continues. |
+| **14 brightness levels** | Press **Select + Up/Down**. The brightness bar shows all 14 levels, including the extra dim settings. Your chosen level is saved. |
+| **Achievement troubleshooting logs** | The log helps distinguish configuration, login, and ROM recognition problems without printing your credentials. |
 
-## Highlights
+## Install
 
-- A shelf for each system, modelled low-poly and drawn the way a PlayStation drew 3D, with real
-  label scans: Game Boy carts in their own plastics, SNES carts in the American shape for a game
-  from the USA and the Super Famicom's for the rest, and PlayStation discs, a game on several
-  discs standing as a stack of them. The one you are on floats and sways; A pulls it down out of
-  the screen into the handheld, and the game comes on like a tube TV. At power-on, an opening in the
-  style of Mega Man X5's boot terminal tells you the handheld's memory, chip and battery, then
-  fades into the shelf.
-- Five cores: mGBA and gpSP for the GBA and Snes9x and Supafaust for the SNES, chosen per cart;
-  mGBA for the Game Boys; PCSX ReARMed for the PlayStation, with a BIOS of its own built in. GBA
-  fills a 640x480 screen and the PlayStation fills it at 4:3; the SNES is drawn at twice its size,
-  and Game Boy stays at 3x.
-- A PlayStation game on several discs is one game: DISC, on SELECT+MENU in a game, puts another
-  disc in, and the game resumes with the disc that was in the drive.
-- Resume on boot, save states with a switcher, rewind (not on the PlayStation), fast-forward,
-  and turbo buttons on the Game Boys.
-- Link play between two handhelds over Wi-Fi, for Game Boy and GBA games: Pokémon trades,
-  Advance Wars, Mario Kart and Tetris.
-- Settings on START, in windows in the style of Mega Man Zero's menus that slide from screen to
-  screen, over a background that keeps moving: CONFIGS (Fast Forward, Fast Forward Sound, Colour
-  Correction, Rumble, Labels) and GENERAL (Date & Time, Network, Bluetooth, Theme, About).
-- A tap of SELECT opens CONTROLS: what every button does, on the shelf and in a game, on one panel.
-- Network: home Wi-Fi, network time, and SSH and SFTP, each ON or OFF. Y on one opens its panel:
-  SSH's shows the login and root's own random password. Labels are fetched from ScreenScraper,
-  one for each disc of a PlayStation game.
-- Bluetooth, on handhelds that have it: pair a device and connect it, or forget it. Game sound and
-  gamepads over Bluetooth are still to come.
-- Theme: the background's pattern, its motion and its colour, which the menus and both bars take
-  (Night is grey, Amber is Mega Man Zero's own), and the bottom bar's font, Bold or Thin.
-- A pixel font, a top bar with the radios, clock and battery, and a bottom bar with the buttons.
+1. Download the [RG35XXSP release ZIP](https://github.com/lorussomj-stack/omega-zero/releases/download/v0.1.0-community/omega-zero-community-v0.1.0-rg35xxsp.zip) and extract it.
+2. Power off the handheld and back up the existing `System/omega-zero` on your Omega-Zero card.
+3. Copy the ZIP’s `System/omega-zero` into the card’s `System` folder, eject the card safely, and boot.
+4. To roll back, power off and restore the executable you backed up.
 
-<img src="site/media/readme/screens.png" width="760" alt="">
+Starting with a fresh card? Install BaseOS and upstream Omega-Zero first, then apply the update. [Upstream installation guide](https://oauramos.github.io/omega-zero/#install)
 
-## Screens
+### Enable RetroAchievements
+
+Copy the included `Config/retroachievements.toml.example` into the card’s `Config` folder as `retroachievements.toml`. Fill in your login locally, connect to Wi-Fi, and restart Omega-Zero. Keep the filled file private. Use a supported ROM revision and select **Snes9x** for SNES achievements.
+
+## In-game preview
 
 <p align="center">
-<a href="https://oauramos.github.io/omega-zero/"><img src="site/media/loops/lid.webp" width="640" alt="An RG35XX SP drawn in 3D, its lid open on the shelf of carts, Emerald in the middle"></a>
-<br><sub>The RG35XX SP in 3D, drawn the way a PlayStation drew it, with omega-zero's own screens on it: the loops play on the <a href="https://oauramos.github.io/omega-zero/">site</a></sub>
+  <img src="community-media/achievement-browser.png" width="480" alt="Omega-Zero achievement browser with earned and locked entries, points, and the selected achievement's requirements">
+  <br><em>Achievement browser rendered from the fork with sample data.</em>
 </p>
 
-<p align="center">
-<img src="site/media/settings.png" width="380" alt="Settings in Night: CONFIGS (Fast Forward 6X, Fast Forward Sound, Colour Correction, Rumble, Labels) and GENERAL (Date and Time, Network, Bluetooth, Theme, About)">
-<img src="site/media/amber.png" width="380" alt="The same Settings in Amber, Mega Man Zero's own orange and brown">
-<br><sub>Settings, in Night and in Amber</sub>
-</p>
+## Source and build
 
-<p align="center">
-<img src="site/media/network.png" width="380" alt="Network: Wi-Fi, Network Time and SSH on, and the networks around with their padlocks, signal and CONNECTED">
-<img src="site/media/bluetooth.png" width="380" alt="Bluetooth: the radio on, and a gamepad connected, headphones paired, a keyboard and a smart band">
-<br><sub>Network and Bluetooth</sub>
-</p>
+The release ZIP includes the matching source archive, license notices, install instructions, and a blank RetroAchievements template. The build workflow checks out the pinned upstream shader commit and applies this fork’s patches. [Build workflow](.github/workflows/ra-night-fix.yml) · [Release notes and downloads](https://github.com/lorussomj-stack/omega-zero/releases)
 
-<p align="center">
-<img src="site/media/theme.png" width="380" alt="Theme: Background Plates, Motion Moving, Colour Night and Font Bold, over the plates pattern">
-<img src="site/media/controls.png" width="380" alt="CONTROLS: what every button does on the shelf and in a game, on one panel">
-<br><sub>Theme, and CONTROLS on a tap of SELECT</sub>
-</p>
+## Credits and AI disclosure
 
-<img src="site/media/readme/quick-start.png" width="760" alt="">
+- **Otávio (@oauramos)** created Omega-Zero, which builds on **Brandon T. Kowalski’s** Slot. [Omega-Zero](https://github.com/oauramos/omega-zero) · [Slot](https://github.com/BrandonKowalski/slot)
+- **Norman Steinmeier** integrated the screen looks in Omega-Zero PR #33. The shader work draws on **Gigaherz’s LCD3x**, **Themaister’s dot shader**, and **Greg Hogan’s (SoltanGris42) grid line weighting** from `zfast_lcd_standard`, by way of Slot and libretro’s shader collection. The scanline and CRT looks come from Omega-Zero. [PR #33](https://github.com/oauramos/omega-zero/pull/33) · [libretro shaders](https://github.com/libretro/glsl-shaders)
+- **pvaibhav** created BaseOS and maintains the Slot fork whose RetroAchievements integration was adapted here. Thanks to the **RetroAchievements and rcheevos contributors** for the service and evaluator. [BaseOS](https://github.com/pvaibhav/BaseOS) · [Slot fork](https://github.com/pvaibhav/slot) · [rcheevos](https://github.com/RetroAchievements/rcheevos)
+- **Qwerasd205** created the Pixel Code font used by Omega-Zero. [Pixel Code](https://github.com/qwerasd205/PixelCode)
 
-## Quick start
+I chose the features and tested the builds on my own RG35XXSP. I used **OpenAI Codex** to help adapt and write code, debug issues, run tests, package the release, and put together this README.
 
-1. Write the [BaseOS image](https://github.com/pvaibhav/BaseOS/releases/latest) for your model to a
-   microSD card, put it in **SD1** and boot once.
-2. Copy the contents of the [latest release](https://github.com/oauramos/omega-zero/releases/latest)
-   to the root of that card.
-3. Put your games in `Games/GBA`, `Games/GB`, `Games/GBC`, `Games/SNES` and `Games/PS1`. A
-   PlayStation game is a `.cue` with its `.bin`, a `.chd`, a `.pbp` or an `.m3u`; a real
-   PlayStation BIOS, such as `scph5501.bin`, is used from `BIOS/` when it is there.
-4. Boot. On the shelf, START opens Settings and a tap of SELECT shows every button.
-
-Two cards and updating are in the site's
-[install guide](https://oauramos.github.io/omega-zero/#install); controls and everything else are
-in the [wiki](https://github.com/oauramos/omega-zero/wiki).
-
-<img src="site/media/readme/credits.png" width="760" alt="">
-
-## Credits and licence
-
-omega-zero is made by **Otávio ([@oauramos](https://github.com/oauramos))**.
-
-- Based on [slot](https://github.com/BrandonKowalski/slot) by
-  [Brandon T. Kowalski](https://github.com/BrandonKowalski) (GPL-3.0). The code that hosts the
-  cores, with their saves, sound and input, is still largely his.
-- [BaseOS](https://github.com/pvaibhav/BaseOS) by pvaibhav.
-- Emulation by [mGBA](https://mgba.io) (MPL-2.0) and [gpSP](https://github.com/libretro/gpsp)
-  (GPL-2.0) for the Game Boys; [Snes9x](https://github.com/libretro/snes9x) (free for
-  non-commercial use only) and [Supafaust](https://github.com/libretro/supafaust), Mednafen's
-  snes_faust (GPL-2.0), for the SNES; and
-  [PCSX ReARMed](https://github.com/libretro/pcsx_rearmed) (GPL-2.0) for the PlayStation. Their
-  licences and patches, and the source of all but mGBA, ship in `System/licenses/`.
-- Type is [Pixel Code](https://github.com/qwerasd205/PixelCode) by Qwerasd (SIL OFL 1.1); every
-  icon is drawn as pixel art. The LCD mask is derived from GigaHerz's LCD3x.
-- Cart labels come from [ScreenScraper](https://www.screenscraper.fr), fetched with your own
-  account.
-
-omega-zero is licensed under the GPL-3.0-or-later; see [LICENSE](LICENSE). It began in October
-2026 as a modified version of slot. It is written with Claude, and reviewed and tested by its
-maintainer. The site and these pictures are drawn with its
-UI kit, [`assets/ui`](assets/ui).
-
-Game Boy, Game Boy Color, Game Boy Advance, Super Nintendo Entertainment System and Super Famicom
-are trademarks of Nintendo. PlayStation is a trademark of Sony Interactive Entertainment. Anbernic
-is a trademark of its owner. This project is not affiliated with any of them.
+This fork is distributed under [GPL-3.0-or-later](LICENSE). If you run into a problem with this build, report it in [this fork’s issues](https://github.com/lorussomj-stack/omega-zero/issues).

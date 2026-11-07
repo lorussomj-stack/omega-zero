@@ -1,58 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 360" role="img" aria-labelledby="title desc">
-  <title id="title">Omega-Zero Community Build</title>
-  <desc id="desc">An unofficial Omega-Zero build tested on the RG35XXSP. A stylized clamshell handheld shows an achievement list.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="360" viewBox="0 0 1180 360" role="img" aria-labelledby="title desc">
+  <title id="title">Omega Zero Plus</title>
+  <desc id="desc">An unofficial Omega-Zero build for the RG35XXSP. Steel-gray menu chrome and floating cartridges on a black grid echo the Omega-Zero shelf.</desc>
   <defs>
-    <linearGradient id="panel" x2="1" y2="1">
-      <stop stop-color="#1f3031"/>
-      <stop offset="1" stop-color="#12191d"/>
-    </linearGradient>
-    <linearGradient id="case" x2="0" y2="1">
-      <stop stop-color="#485559"/>
-      <stop offset="1" stop-color="#252d34"/>
-    </linearGradient>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#9cbbaf" stroke-opacity=".095"/>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#32363e" stroke-width="2"/>
     </pattern>
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M0 0h2v2H0zM2 2h2v2H2z" fill="#000" opacity=".17"/>
+    </pattern>
+    <linearGradient id="blue" x2="0" y2="100%">
+      <stop stop-color="#7deaff"/><stop offset="1" stop-color="#168fc4"/>
+    </linearGradient>
+    <linearGradient id="gold" x2="0" y2="100%">
+      <stop stop-color="#ffef9a"/><stop offset=".62" stop-color="#ffad46"/><stop offset="1" stop-color="#e7652c"/>
+    </linearGradient>
+    <linearGradient id="steel" x2="0" y2="100%">
+      <stop stop-color="#5e636e"/><stop offset="1" stop-color="#272933"/>
+    </linearGradient>
+    <linearGradient id="label" x2="100%" y2="100%">
+      <stop stop-color="#31306b"/><stop offset=".55" stop-color="#3d4d9b"/><stop offset="1" stop-color="#286f97"/>
+    </linearGradient>
+    <path id="cart" d="M0 16 16 0h263l16 16v31h-9v120l-9 9H18l-9-9V47H0z"/>
+    <clipPath id="shelf"><path d="M705 54h466v250H705z"/></clipPath>
   </defs>
-  <rect x="1" y="1" width="1178" height="358" rx="20" fill="url(#panel)" stroke="#586d64" stroke-width="2"/>
-  <rect x="2" y="2" width="1176" height="356" rx="19" fill="url(#grid)"/>
-  <path d="M30 55V30h25m1070 0h25v25M30 305v25h25m1070 0h25v-25" fill="none" stroke="#b8d9a0" stroke-width="2" opacity=".58"/>
-  <g font-family="DejaVu Sans, sans-serif">
-    <rect x="67" y="56" width="12" height="12" fill="#c7e5aa"/>
-    <text x="91" y="67" fill="#c7e5aa" font-size="17" letter-spacing="2">UNOFFICIAL COMMUNITY BUILD</text>
-    <text x="63" y="165" fill="#f6f4de" font-size="81" font-weight="bold">Omega-Zero</text>
-    <text x="69" y="216" fill="#c0ccc8" font-size="25">Tested on RG35XXSP with BaseOS</text>
-    <path d="M69 250h556" stroke="#506960"/>
-    <g fill="#c7e5aa" font-size="16" font-weight="bold">
-      <text x="69" y="284">LCD GRID</text>
-      <text x="216" y="284">RETROACHIEVEMENTS</text>
-      <text x="454" y="284">NIGHT DIMMING</text>
-    </g>
-    <g fill="#829b8d">
-      <circle cx="190" cy="278" r="3"/>
-      <circle cx="428" cy="278" r="3"/>
-    </g>
+
+  <path d="M0 0h1180v360H0z" fill="#08090e"/>
+  <path d="M0 42h1180v276H0z" fill="url(#grid)"/>
+  <path d="M0 0h1180v40H0zM0 320h1180v40H0z" fill="#33353a"/>
+  <path d="M0 40h1180M0 320h1180" stroke="#8b8d91" stroke-width="2"/>
+  <path d="M2 2h1176v356H2z" stroke="#777980" stroke-width="2" fill="none"/>
+  <path d="M14 11h289l18 18H14z" fill="#1e222b" stroke="#81848c"/>
+  <g font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" letter-spacing="2" fill="#e9eaec">
+    <text x="27" y="25">UNOFFICIAL COMMUNITY BUILD</text>
+    <text x="1152" y="25" text-anchor="end">RG35XXSP / BASEOS</text>
   </g>
-  <g transform="translate(765 35)">
-    <rect x="8" y="10" width="332" height="286" rx="29" fill="#0e1518" opacity=".72"/>
-    <rect width="332" height="186" rx="23" fill="url(#case)" stroke="#7b8a8a" stroke-width="2"/>
-    <rect x="23" y="17" width="286" height="150" rx="13" fill="#141c1f" stroke="#101416" stroke-width="3"/>
-    <rect x="37" y="30" width="258" height="123" rx="4" fill="#a9c991"/>
-    <rect x="46" y="40" width="239" height="23" fill="#263a31"/>
-    <text x="54" y="56" fill="#e0efca" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="12" letter-spacing="1">ACHIEVEMENTS</text>
-    <path d="M51 78h229v17H51zm0 23h229v17H51zm0 23h229v17H51z" fill="#819f73"/>
-    <path d="m60 86 4 4 8-8" stroke="#2c4637" fill="none" stroke-width="2"/>
-    <path d="M62 107h9v7h-9zm0 23h9v7h-9z" fill="#45634b"/>
-    <path d="M82 86h115m-115 23h151m-151 23h100" stroke="#45634b" stroke-width="3"/>
-    <path d="M37 33h258v120H37z" fill="url(#grid)"/>
-    <rect x="13" y="183" width="306" height="18" rx="8" fill="#1b252a" stroke="#657674"/>
-    <rect y="196" width="332" height="92" rx="20" fill="url(#case)" stroke="#7b8a8a" stroke-width="2"/>
-    <path d="M63 214h17v17h17v17H80v17H63v-17H46v-17h17z" fill="#161d22" stroke="#76817f"/>
-    <g fill="#161d22" stroke="#84918a">
-      <circle cx="259" cy="218" r="11"/><circle cx="285" cy="238" r="11"/>
-      <circle cx="259" cy="258" r="11"/><circle cx="233" cy="238" r="11"/>
+
+  <path d="M34 64h653l18 18v198l-16 16H34z" fill="#101219" stroke="#777b85" stroke-width="2"/>
+  <path d="M36 66h622l19 19H36z" fill="#373a44"/>
+  <path d="M36 294h651l14-14" fill="none" stroke="#2c91b2" stroke-width="2"/>
+
+  <g font-family="DejaVu Sans, sans-serif" font-weight="bold" font-style="italic" font-size="72" letter-spacing="-3">
+    <text x="58" y="166" fill="#05060a" stroke="#05060a" stroke-width="10">OMEGA</text>
+    <text x="351" y="166" fill="#05060a" stroke="#05060a" stroke-width="10">ZERO</text>
+    <text x="58" y="161" fill="url(#blue)" stroke="#d3d6dc" stroke-width="5" stroke-linejoin="round" paint-order="stroke">OMEGA</text>
+    <text x="351" y="161" fill="url(#gold)" stroke="#d3d6dc" stroke-width="5" stroke-linejoin="round" paint-order="stroke">ZERO</text>
+  </g>
+  <path d="M82 183h163l-12 47H70z" fill="#11141e" stroke="#b5b9c3" stroke-width="2"/>
+  <path d="M87 188h151l-9 36H78z" fill="#252c3e"/>
+  <text x="94" y="216" fill="#f5d180" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-style="italic" font-size="32" letter-spacing="5">PLUS</text>
+  <path d="M254 206h384l21-15" stroke="#535967" stroke-width="2" fill="none"/>
+  <path d="M71 251h589" stroke="#373b48" stroke-width="2"/>
+  <g font-family="DejaVu Sans Mono, monospace" font-size="15" font-weight="bold" fill="#dddfe8">
+    <text x="71" y="275">LCD GRID</text>
+    <text x="218" y="275">RETROACHIEVEMENTS</text>
+    <text x="473" y="275">NIGHT DIMMING</text>
+  </g>
+  <path d="M184 268h7v7h-7zM433 268h7v7h-7z" fill="#5fc3e4"/>
+
+  <g clip-path="url(#shelf)">
+    <ellipse cx="933" cy="280" rx="165" ry="13" fill="#050508" opacity=".85"/>
+    <g transform="translate(698 136) scale(.67)" opacity=".54">
+      <use href="#cart" fill="#1f2128" stroke="#6a6a76" stroke-width="3"/>
+      <path d="M31 57h233v94H31z" fill="#5f512c" stroke="#181920" stroke-width="4"/>
     </g>
-    <path d="M142 257h17m13 0h17" stroke="#161d22" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="313" cy="211" r="3" fill="#c7e5aa"/>
+    <g transform="translate(1039 136) scale(.67)" opacity=".54">
+      <use href="#cart" fill="#1f2128" stroke="#6a6a76" stroke-width="3"/>
+      <path d="M31 57h233v94H31z" fill="#5f512c" stroke="#181920" stroke-width="4"/>
+    </g>
+    <g transform="translate(795 88) rotate(-3 147 88)">
+      <use href="#cart" fill="#090a10" transform="translate(0 7)"/>
+      <use href="#cart" fill="url(#steel)" stroke="#888d99" stroke-width="2"/>
+      <use href="#cart" fill="url(#dots)"/>
+      <path d="M41 39q107-31 213 0" fill="none" stroke="#a2a6b0" opacity=".55"/>
+      <path d="M31 56h233v94H31z" fill="url(#label)" stroke="#141620" stroke-width="5"/>
+      <path d="M34 59h227v88H34z" fill="url(#dots)"/>
+      <path d="M43 135h205" stroke="#677ece" stroke-width="2"/>
+      <text x="147" y="116" text-anchor="middle" fill="#f8edda" font-family="DejaVu Sans Mono, monospace" font-size="35" font-weight="bold" letter-spacing="6">PLUS</text>
+      <path d="m130 158 17 7 17-7z" fill="#171a23" stroke="#717581"/>
+    </g>
+    <path d="M764 168l-10 9 10 9m345-18 10 9-10 9" stroke="#a8acb8" stroke-width="3" fill="none"/>
+  </g>
+  <g font-family="DejaVu Sans Mono, monospace" font-size="13" font-weight="bold" fill="#eeeff2">
+    <path d="M20 329h115v23H20z" fill="#17191f" stroke="#b1b3b9"/>
+    <text x="77" y="345" text-anchor="middle">COMMUNITY</text>
+    <path d="M1045 329h115v23h-115z" fill="#17191f" stroke="#b1b3b9"/>
+    <text x="1102" y="345" text-anchor="middle">v0.1.0</text>
   </g>
 </svg>

@@ -1,17 +1,17 @@
 <div align="center">
 
-<img src="community-media/community-banner.svg" width="100%" alt="Omega-Zero Community Build, an unofficial fork tested on RG35XXSP with BaseOS">
+<img src="community-media/community-banner.svg" width="100%" alt="Omega Zero Plus, an unofficial Omega-Zero build tested on RG35XXSP with BaseOS">
 
-<a href="https://github.com/lorussomj-stack/omega-zero/releases/download/v0.1.0-community/omega-zero-community-v0.1.0-rg35xxsp.zip"><img src="https://img.shields.io/badge/Download-v0.1.0-86a86f?style=for-the-badge&amp;labelColor=202d2d" alt="Download v0.1.0 for RG35XXSP"></a>
-<a href="https://github.com/lorussomj-stack/omega-zero/releases"><img src="https://img.shields.io/badge/Release_notes-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="Release notes"></a>
-<a href="#install"><img src="https://img.shields.io/badge/Install_guide-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="Install guide"></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0--or--later-4d5d66?style=for-the-badge&amp;labelColor=202d2d" alt="GPL-3.0-or-later license"></a>
+<a href="https://github.com/lorussomj-stack/omega-zero/releases/download/v0.1.0-community/omega-zero-community-v0.1.0-rg35xxsp.zip"><img src="https://img.shields.io/badge/Download-v0.1.0-267aa0?style=for-the-badge&amp;labelColor=24252d" alt="Download v0.1.0 for RG35XXSP"></a>
+<a href="https://github.com/lorussomj-stack/omega-zero/releases"><img src="https://img.shields.io/badge/Release_notes-4a4e5b?style=for-the-badge&amp;labelColor=24252d" alt="Release notes"></a>
+<a href="#install"><img src="https://img.shields.io/badge/Install_guide-4a4e5b?style=for-the-badge&amp;labelColor=24252d" alt="Install guide"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0--or--later-4a4e5b?style=for-the-badge&amp;labelColor=24252d" alt="GPL-3.0-or-later license"></a>
 
 </div>
 
 ## About this fork
 
-An unofficial community build of [Omega-Zero](https://github.com/oauramos/omega-zero), a cartridge-shelf frontend for Anbernic handhelds running BaseOS. I started with the LCD grid and added RetroAchievements, an in-game achievement browser, and extra dimming for nighttime play.
+**Omega Zero Plus** is an unofficial community build of [Omega-Zero](https://github.com/oauramos/omega-zero), a cartridge-shelf frontend for Anbernic handhelds running BaseOS. I started with the LCD grid and added RetroAchievements, an in-game achievement browser, and extra dimming for nighttime play.
 
 I tested this build on the **RG35XXSP (640 × 480) running BaseOS**. The release updates the frontend on an existing Omega-Zero card and uses the emulator cores already on it.
 
